@@ -1,5 +1,6 @@
-flask
-flask-restful
+fastapi
 pandas
-werkzeug
+uvicorn
+fastapi_versioning
+python-multipart
 gunicorn
