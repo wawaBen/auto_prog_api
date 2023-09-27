@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from os.path import exists
 from fastapi.responses import FileResponse
-from fastapi_versioning import VersionedFastAPI, version
 from Utils import dcu102, sid208
 
 
@@ -64,8 +63,8 @@ TMP_ZIP_FILE = "/tmp/files_off.zip"
 @app.post("/uploadDCU102/{type}",
         status_code=status.HTTP_200_OK,
         summary="DCU 102 calculator",
-        description="blablabla")
-@version(1, 0)
+        description="only type supported : IMMOOFF")
+
 def post_fileDCU102(type: str, fileDCU102: UploadFile):
 
     #Check that we are doing IMMOOFF
@@ -107,8 +106,11 @@ def post_fileDCU102(type: str, fileDCU102: UploadFile):
 # Pour le SID208   
 # ----------------- 
 
-@app.post("/uploadSID208")
-@version(1, 0)
+@app.post("/uploadSID208/{type}",
+        status_code=status.HTTP_200_OK,
+        summary="SID 208 calculator",
+        description="only type supported : IMMOOFF")
+
 def post_fileSID208(type: str, fileSID208_flash: UploadFile, fileSID208_EEPROM: UploadFile):
 
     #Check that we are doing IMMOOFF
@@ -151,10 +153,3 @@ def post_fileSID208(type: str, fileSID208_flash: UploadFile, fileSID208_EEPROM: 
         raise HTTPException(status_code=404, detail="Type not found")
 
     return response
-
-
-# ----------------------
-# Pour le versionning   
-# ----------------------
-
-app = VersionedFastAPI(app)

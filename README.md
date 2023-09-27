@@ -21,6 +21,12 @@ then use postman to test it
 
 When ready you can deploy it with
 
+### `gcloud config set project auto-programming-proto`
+
 ### `gcloud app deploy`
 
-enjoy
+You will find it in the following url :
+
+https://auto-programming-proto.ey.r.appspot.com
+
+enjoy !
