@@ -12,7 +12,7 @@ This script works to decrypt and manipulate bin files for autoprogramming
 
 To launch it locally run 
 
-### `uvicorn -b :8080 main:app`
+### `uvicorn main:app`
 
 then use postman to test it
 

@@ -4,3 +4,4 @@ entrypoint: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --max-reques
 runtime_config:
     operating_system: "ubuntu18"
     runtime_version: "3.8"
+    instance_class: F4
